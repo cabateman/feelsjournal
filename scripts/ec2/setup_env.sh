@@ -7,7 +7,7 @@ pip install virtualenv
 #echo "source /usr/bin/virtualenvwrapper_lazy.sh" >> /root/.bashrc
 #source /root/.bashrc
 
-mkvirtualenv feelsjournal
-source /root/.virtualenvs/feelsjournal/bin/activate
+virtualenv feelsjournal
+source feelsjournal/bin/activate
 yum -y install postgresql-devel
 pip install -r /root/feelsjournal/requirements.txt
