@@ -12,8 +12,8 @@ $ echo "source /usr/local/bin/virtualenvwrapper_lazy.sh" >> ~/.bash_profile
 $ source ~/.bash_profile
 
 # setup
-$ mkvirtualenv mtc
-$ workon mtc
+$ mkvirtualenv [env]
+$ workon [env]
 $ pip install -r requirements.txt
 
 # you can disable current virtualenv by run
