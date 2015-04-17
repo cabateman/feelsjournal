@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Metricboard Server
 
 
@@ -37,3 +38,6 @@ then you can overwrite any variables you want.
 $ python server.py -h
 $ python server.py
 ```
+=======
+# feelsjournal
+>>>>>>> 018c6d7762e3fdf27fcbb081ddad9c0f29fe6f73
