@@ -18,7 +18,7 @@ git pull origin master
 
 # Activate the virtual environment
 #cd $DIR
-source /root/.virtualenvs/feelsjournal/bin/activate
+source feelsjournal/bin/activate
 export PYTHONPATH=$DIR:$PYTHONPATH
 
 # Create the run directory if it doesn't exist
@@ -27,7 +27,7 @@ test -d $RUNDIR || mkdir -p $RUNDIR
 
 # Start your Django Unicorn
 # Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
-exec /root/.virtualenvs/feelsjournal/bin/gunicorn ${WSGI_MODULE}:app \
+exec feelsjournal/bin/gunicorn ${WSGI_MODULE}:app \
   --name $NAME \
   --workers $NUM_WORKERS \
   --timeout $TIMEOUT \

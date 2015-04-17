@@ -1,4 +1,4 @@
-source /root/.virtualenvs/feelsjournal/bin/activate
+source feelsjournal/bin/activate
 
 pip install gunicorn
 pip install setproctitle
