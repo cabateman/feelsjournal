@@ -15,6 +15,7 @@ local_config_dir = './config'
 
 remote_app_dir = '/home/www'
 remote_git_dir = '/home/git'
+remote_log_dir = '/var/log/feelsjournal'
 remote_flask_dir = remote_app_dir + '/feelsjournal'
 remote_nginx_dir = '/etc/nginx/sites-enabled'
 remote_supervisor_dir = '/etc/supervisor/conf.d'
@@ -40,6 +41,7 @@ def install_requirements():
     sudo('apt-get install -y gunicorn')
     sudo('apt-get install -y supervisor')
     sudo('apt-get install -y git')
+    sudo('mkdir ' + remote_log_dir)
 
 
 def install_flask():
