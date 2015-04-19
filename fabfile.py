@@ -21,7 +21,7 @@ remote_supervisor_dir = '/etc/supervisor/conf.d'
 
 env.hosts = ['52.5.88.87']  # replace with IP address or hostname
 env.user = 'ubuntu'
-env.key_filename = ["my_key.pem",]
+env.key_filename = ["./dev_mtc_mba.pem",]
 
 
 #############
@@ -53,12 +53,12 @@ def install_flask():
     if exists(remote_flask_dir) is False:
         sudo('mkdir ' + remote_flask_dir)
     with lcd(local_app_dir):
+        with cd(remote_flask_dir):
+            put('*', './', use_sudo=True)
         with cd(remote_app_dir):
             sudo('virtualenv env')
             sudo('source env/bin/activate')
-            sudo('pip install -r requirements.txt')
-        with cd(remote_flask_dir):
-            put('*', './', use_sudo=True)
+            sudo('pip install -r '+remote_flask_dir+'/requirements.txt')
 
 
 def configure_nginx():
