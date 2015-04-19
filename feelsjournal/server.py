@@ -1,4 +1,4 @@
-"""textful RESTFul API Server
+"""feelsjournal RESTFul API Server
 
 Usage:
   server.py [--port=<port>] [--debug=<debug>] [--network=<network>]
