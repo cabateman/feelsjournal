@@ -10,16 +10,16 @@ from fabric.contrib.files import exists
 ### config ###
 ##############
 
-local_app_dir = './feelsjournal'
-local_config_dir = './feelsjournal/config'
+local_app_dir = '../feelsjournal'
+local_config_dir = './config'
 
 remote_app_dir = '/home/www'
-remote_git_dir = '/home/ubuntu/git'
+remote_git_dir = '/home/git'
 remote_flask_dir = remote_app_dir + '/feelsjournal'
 remote_nginx_dir = '/etc/nginx/sites-enabled'
 remote_supervisor_dir = '/etc/supervisor/conf.d'
 
-env.hosts = ['52.5.14.48']  # replace with IP address or hostname
+env.hosts = ['52.5.129.219']  # replace with IP address or hostname
 env.user = 'ubuntu'
 env.key_filename = ["../dev_mtc_mba.pem",]
 
@@ -102,15 +102,15 @@ def configure_git():
     2. Create post-receive hook
     """
     if exists(remote_git_dir) is False:
-        run('mkdir ' + remote_git_dir)
+        sudo('mkdir ' + remote_git_dir)
         with cd(remote_git_dir):
-            run('mkdir feelsjournal.git')
+            sudo('mkdir feelsjournal.git')
             with cd('feelsjournal.git'):
-                run('git init --bare')
+                sudo('git init --bare')
                 with lcd(local_config_dir):
                     with cd('hooks'):
                         put('./post-receive', './', use_sudo=True)
-                        run('chmod +x post-receive')
+                        sudo('chmod +x post-receive')
 
 
 def run_app():
