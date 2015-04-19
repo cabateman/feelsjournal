@@ -6,7 +6,7 @@ blueprint = Blueprint('home', __name__)
 
 @blueprint.route("/", methods=['GET'])
 def index():
-    return "It works."
+    return "It works. Yo."
 
 @blueprint.route("/welcome", methods=['GET'])
 def welcome():
