@@ -12,3 +12,4 @@ def index():
 def welcome():
     message = twilio_client.messages.create(to="+19163371920", from_="+14153902961",
                                      body="Welcome to FeelsJournal!")
+    return "Sending welcome message."

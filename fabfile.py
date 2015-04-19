@@ -11,7 +11,7 @@ from fabric.contrib.files import exists
 ##############
 
 local_app_dir = './feelsjournal'
-local_config_dir = './config'
+local_config_dir = './feelsjournal/config'
 
 remote_app_dir = '/home/www'
 remote_git_dir = '/home/git'
@@ -19,9 +19,9 @@ remote_flask_dir = remote_app_dir + '/feelsjournal'
 remote_nginx_dir = '/etc/nginx/sites-enabled'
 remote_supervisor_dir = '/etc/supervisor/conf.d'
 
-env.hosts = ['52.5.88.87']  # replace with IP address or hostname
+env.hosts = ['52.6.8.230']  # replace with IP address or hostname
 env.user = 'ubuntu'
-env.key_filename = ["./dev_mtc_mba.pem",]
+env.key_filename = ["../dev_mtc_mba.pem",]
 
 
 #############
