@@ -68,13 +68,24 @@ class PrimaryIdBaseModel(BaseModel):
         return session.query(cls).get(id)
 
     @classmethod
-    def get_by_id(cls, id, session=None):
-        if not session:
-            session = db.session
-        return session.query(cls).get(id)
+    def get_id_by_filter(cls, filter_name, filter_value):
+        id = None
+        try:
+            id = mc.get(hashlib.md5(filter_value).hexdigest())
+        except:
+            pass
+        if id is not None:
+            return id
+        else:
+            try:
+                qry = db.session.query(cls.id).filter(getattr(cls, filter_name).like("%%%s%%" % filter_value)).limit(1)
+                id, = qry.one()
+                mc.set(hashlib.md5(filter_value).hexdigest(), id)
+                return id
+            except sqlalchemy.orm.exc.NoResultFound:
+                logging.info("no result found for value: {}".format(filter_value))
+                return None
 
 
 
-from feels.models.emotion import Emotion
-from feels.models.journal import Journal
-from feels.models.users import Users
+#from metricboard.models.os_version import OsVersion

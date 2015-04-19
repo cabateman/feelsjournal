@@ -20,7 +20,7 @@ remote_flask_dir = remote_app_dir + '/feelsjournal'
 remote_nginx_dir = '/etc/nginx/sites-enabled'
 remote_supervisor_dir = '/etc/supervisor/conf.d'
 
-env.hosts = ['52.4.200.94']  # replace with IP address or hostname
+env.hosts = ['52.6.61.223']  # replace with IP address or hostname
 env.user = 'ubuntu'
 env.key_filename = ["../dev_mtc_mba.pem",]
 
