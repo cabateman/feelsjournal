@@ -1,4 +1,0 @@
-#!/bin/bash
-cd /root/feelsjournal
-git pull origin master
-service supervisord start
