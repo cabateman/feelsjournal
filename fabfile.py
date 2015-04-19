@@ -20,8 +20,8 @@ remote_nginx_dir = '/etc/nginx/sites-enabled'
 remote_supervisor_dir = '/etc/supervisor/conf.d'
 
 env.hosts = ['52.5.88.87']  # replace with IP address or hostname
-env.user = 'feels'
-# env.password = 'blah!'
+env.user = 'ubuntu'
+env.key_filename = ["my_key.pem",]
 
 
 #############
