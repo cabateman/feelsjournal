@@ -6,7 +6,7 @@ APP_ROOT = path.abspath(path.join(path.dirname(__file__), '../'))
 
 # Logging
 LOGGING_LEVEL = logging.DEBUG
-LOGGING_ADDRESS = "/tmp/textfeel"  # don't use syslog if its None
+LOGGING_ADDRESS = "/var/log/feelsjournal"  # don't use syslog if its None
 
 # API Version
 API_VERSION = "1.0"

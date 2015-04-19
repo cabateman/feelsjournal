@@ -26,7 +26,7 @@ def init_web_logging():
     """
     if LOGGING_ADDRESS and path.exists(LOGGING_ADDRESS):
         try:
-           timed_handler = TimedRotatingFileHandler(LOGGING_ADDRESS+"/textfeel.access.log" ,when="d", interval=7, backupCount=5)
+           timed_handler = TimedRotatingFileHandler(LOGGING_ADDRESS+"/feelsjournal.access.log" ,when="d", interval=7, backupCount=5)
         except Exception as e:
            timed_handler = SysLogHandler()
         root_logger.addHandler(timed_handler)
