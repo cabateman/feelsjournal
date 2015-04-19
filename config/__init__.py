@@ -15,9 +15,8 @@ API_VERSION = "1.0"
 # Postgres
 ############ 
 
-# Bind - payment
 PSQL_HOST = 'localhost'
-PSQL_DATABASE = 'textfeel'
+PSQL_DATABASE = 'feelsjournal'
 PSQL_USER = ''
 PSQL_PASSWORD = ''
 PSQL_PORT = '5432'
