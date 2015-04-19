@@ -12,9 +12,11 @@ Options:
 from docopt import docopt
 from feels import app
 from feels.lib import logger
+import logging
 
 logger.init_web_logging()
 if __name__ == '__main__':
+    logging.debug("starting app")
     arguments = docopt(__doc__)
     app.debug = (arguments['--debug'].lower() == 'true')
     host = '0.0.0.0' if(arguments['--network'].lower() == 'true') else '127.0.0.1'

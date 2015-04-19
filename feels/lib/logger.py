@@ -42,7 +42,7 @@ def init_script_logging():
 
     if LOGGING_ADDRESS and path.exists(LOGGING_ADDRESS):
         try:
-           timed_handler = TimedRotatingFileHandler(LOGGING_ADDRESS+"/textfeel.script.log" ,when="d", interval=7, backupCount=5)
+           timed_handler = TimedRotatingFileHandler(LOGGING_ADDRESS+"/feelsjournal.script.log" ,when="d", interval=7, backupCount=5)
         except Exception as e:
            timed_handler = TimedRotatingFileHandler()
         script_logger.addHandler(timed_handler)
