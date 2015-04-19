@@ -19,7 +19,7 @@ remote_flask_dir = remote_app_dir + '/feelsjournal'
 remote_nginx_dir = '/etc/nginx/sites-enabled'
 remote_supervisor_dir = '/etc/supervisor/conf.d'
 
-env.hosts = ['52.4.13.232']  # replace with IP address or hostname
+env.hosts = ['52.6.61.223']  # replace with IP address or hostname
 env.user = 'ubuntu'
 env.key_filename = ["../dev_mtc_mba.pem",]
 
@@ -113,6 +113,13 @@ def configure_git():
                         sudo('chmod +x post-receive')
 
 
+def configure_ownership():
+    """
+    1. Change ownership of 'root' to 'ubuntu' so we can deploy via fab
+    """
+    sudo('chown -R ubuntu:ubuntu ' + remote_git_dir)
+    sudo('chown -R ubuntu:ubuntu ' + remote_app_dir)
+
 def run_app():
     """ Run the app! """
     with cd(remote_flask_dir):
@@ -154,3 +161,4 @@ def create():
     configure_nginx()
     configure_supervisor()
     configure_git()
+    configure_ownership()
