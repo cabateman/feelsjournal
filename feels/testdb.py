@@ -8,6 +8,18 @@ from feels import db
 from feels.models import Emotion
 import logging
 
-e = Emotion()
-result = e.get_by_name("happy")
-print result
+with open("convertcsv.csv", "rb") as lines:
+    for line in lines:
+        emotions = line.strip().lower().split(",")
+        for em in emotions:
+            if len(em)>0:
+                try:
+                    e = Emotion(em)
+                    e.save() 
+                except:
+                    pass
+    
+
+#e = Emotion()
+#result = e.get_by_name("happy")
+#print result
